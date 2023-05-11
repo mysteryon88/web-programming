@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+		input {
+			margin-bottom: 10px;
+			width: 80%;
+			max-width: 300px;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+        <h1>Авторизация</h1>
+    </header>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			const searchParams = new URLSearchParams(window.location.search);
+			const error = searchParams.get("error");
+			if (error === "wrong_password") 
+				alert("Неверный пароль!");
+			if (error === "not_found") 
+				alert("Неправильный логин!");
+		});
+	</script>
+    <nav>
+        <ul>
+            <li><a href="index.php">Начальная страница</a></li>
+        </ul>
+    </nav>
+    <form action="login.php" method="post">
+        <label for="login">Логин:</label>
+        <input type="text" name="login" id="login" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <input type="submit" value="Войти">
+    </form>
+	<footer>
+        <p>&copy; 2023 Дистрибьюторская компания. Все права защищены.</p>
+    </footer>
+</body>
+</html>
